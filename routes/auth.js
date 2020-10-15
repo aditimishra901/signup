@@ -72,6 +72,9 @@ router.post("/login", function (req,res) {
       const email =req.body.email ;
       const password = req.body.password;
 
+      console.log(email);
+      console.log(password);
+
        User.findOne({email: email}).then(user => {
 
          bcrypt.compare(password, user.password) // to compare the stored and entered password, returning because this will give us a promise
@@ -89,7 +92,7 @@ router.post("/login", function (req,res) {
 
    })
    .catch((err) => {
-      res.json("something went wrong");
+      res.json("something went wrong")
      });
 }).catch(err => {res.json("user not found")})
 
