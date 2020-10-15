@@ -22,7 +22,7 @@ router.post("/register",[
        if(!errors.isEmpty()){
          res.json(errors);
        }
-      
+
   const name =req.body.name ;
   const email =req.body.email ;
 
@@ -42,7 +42,17 @@ router.post("/register",[
             email:email,
             password:hash
           });
-          user.save();
+          user.save(function(err){
+            if(!err){
+              res.send("successfully addded");
+            }
+            else{
+              res.send(err);
+            }
+
+
+
+          });
 
 
 
