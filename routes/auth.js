@@ -76,7 +76,7 @@ router.post("/login", function (req,res) {
       console.log(password);
 
        User.findOne({email: email}).then(user => {
-
+            console.log("before bcrypt");
          bcrypt.compare(password, user.password) // to compare the stored and entered password, returning because this will give us a promise
          .then(equal=>{  //will get a true or false
            if(!equal){
@@ -84,10 +84,12 @@ router.post("/login", function (req,res) {
         }
 
         //create and assign token
+
+        console.log("after if of bcrypt");
         const token = jwt.sign({_id:user._id}, process.env.TOKEN_SECRET);
         res.header('auth-token',token);
 
-
+        console.log("after token generation");
         res.status(200).json({token:token, userId:user._id.toString() , message:'User logged in', username:user.name})
 
    })
