@@ -80,7 +80,7 @@ router.post("/login", function (req,res) {
          bcrypt.compare(password, user.password) // to compare the stored and entered password, returning because this will give us a promise
          .then(equal=>{  //will get a true or false
            if(!equal){
-             res.json("password incorrect")
+             res.json({"response":"password incorrect"})
         }
 
         //create and assign token
@@ -92,9 +92,9 @@ router.post("/login", function (req,res) {
 
    })
    .catch((err) => {
-      res.json("something went wrong")
+      res.json({"response":"something went wrong"})
      });
-}).catch(err => {res.json("user not found")})
+}).catch(err => {res.json({"response":"user not found"})})
 
 
 
