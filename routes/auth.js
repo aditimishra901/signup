@@ -44,7 +44,7 @@ router.post("/register",[
           });
           user.save(function(err){
             if(!err){
-              res.send("successfully addded");
+              res.json({"response":"successfully added"})
             }
             else{
               res.send(err);
