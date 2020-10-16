@@ -30,7 +30,7 @@ router.post("/register",[
       if(emailExists)
       {
         return res.status(400).json({
-                     msg: "User Already Exists"
+                     "response": "User Already Exists"
                  });
       }
 
