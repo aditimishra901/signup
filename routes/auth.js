@@ -19,9 +19,9 @@ router.post("/register",[
 ], function (req,res) {
 
   const errors = validationResult(req); //this function checks whteher error occurs or not
-       if(!errors.isEmpty()){
-         res.json(errors);
-       }
+       // if(!errors.isEmpty()){
+       //   res.json(errors);
+       // }
 
   const name =req.body.name ;
   const email =req.body.email ;
