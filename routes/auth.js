@@ -18,10 +18,10 @@ router.post("/register",[
                     .isLength({ min: 6, max: 10 })
 ], function (req,res) {
 
-  const errors = validationResult(req); //this function checks whteher error occurs or not
-       // if(!errors.isEmpty()){
-       //   res.json(errors);
-       // }
+  const errors = validationResult(req);
+       if(!errors.isEmpty()){
+         res.json(errors);
+       }
 
   const name =req.body.name ;
   const email =req.body.email ;
